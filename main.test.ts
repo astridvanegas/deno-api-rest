@@ -38,7 +38,7 @@ Deno.test(`PATCH/movies/:id should return 'Not Found'`, async () => {
 Deno.test(`Delete/movies/:id should return 'Movie removed'`, async () => {
   const request = await superoak(app);
 
-  const a = await request.delete('/movies/999999999999999999999999')
+  await request.delete('/movies/999999999999999999999999')
     .expect(200)
     .expect(`{"message":"Movie removed"}`)
 });
