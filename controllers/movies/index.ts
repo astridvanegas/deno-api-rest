@@ -51,6 +51,7 @@ export const getMovie = async ({
 }) => {
   try {
     const movie = await findById(params.id);
+
     if (movie) {
       response.status = 200;
       response.body = { message: 'Movie Found', movie: movie };

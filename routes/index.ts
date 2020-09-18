@@ -7,6 +7,8 @@ import {
   updateMovie
 } from '../controllers/movies/index.ts';
 
+import { validator } from "../middlewares/validator.ts";
+
 const router = new Router();
 
 router.get('/', ({ response }) => {
@@ -14,8 +16,9 @@ router.get('/', ({ response }) => {
 });
 
 router.get('/movies', getMovies);
-router.get('/movies/:id', getMovie);
+router.get('/movies/:id', validator, getMovie);
 router.post('/movies', createMovie);
 router.delete('/movies/:id', deleteMovie);
 router.patch('/movies/:id', updateMovie);
+
 export default router;
