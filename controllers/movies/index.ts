@@ -32,7 +32,7 @@ export const createMovie = async ({
     response.status = 200;
     response.body = { message: 'Movie created successfully' };
   } catch (error) {
-    if (error.code === 'BODY_MISSING') {
+    if (error.message === 'BODY_MISSING') {
       response.status = 400;
       response.body = 'Body is required';
     } else {
@@ -73,8 +73,6 @@ export const updateMovie = async ({
   request: Request;
   response: Response;
 }) => {
-  const movie = await findById(params.id);
-
   const body: Body = await request.body();
   const newMovie: MovieSchema = await body.value;
   const movieFound = await findById(params.id);

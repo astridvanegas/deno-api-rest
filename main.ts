@@ -10,4 +10,9 @@ app.use(router.routes());
 app.use(router.allowedMethods());
 
 console.log(`Server Running on http://localhost:${PORT}`);
-await app.listen({ port: PORT });
+
+if (import.meta.main) {
+  await app.listen({ port: PORT });
+}
+
+export default app;
