@@ -74,19 +74,17 @@ export const updateMovie = async ({
   request: Request;
   response: Response;
 }) => {
-  const body: Body = await request.body();
-  const newMovie: MovieSchema = await body.value;
   const movieFound = await findById(params.id);
 
   if (!movieFound) {
     response.status = 404;
     response.body = { message: 'Movie Not Found' };
   } else {
-    const body = await request.body();
+    const body: Body = await request.body();
     const movieUpdated = await body.value;
     const movie = await update(params.id, movieUpdated);
     response.status = 200;
-    response.body = { movie };
+    response.body = { message: 'Movie updated successfully' };
   }
 };
 

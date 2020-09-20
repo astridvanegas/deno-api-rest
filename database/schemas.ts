@@ -1,5 +1,4 @@
 // Schema interface
-
 export interface MovieSchema {
   _id: { $oid: string };
   description: string;

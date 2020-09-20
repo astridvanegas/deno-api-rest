@@ -7,12 +7,12 @@ import {
   updateMovie
 } from '../controllers/movies/index.ts';
 
-import { validator } from "../middlewares/validator.ts";
+import { validator } from '../middlewares/validator.ts';
 
 const router = new Router();
 
 router.get('/', ({ response }) => {
-  response.body = 'Welcomeee running with deno';
+  response.body = 'Welcome to Movies App';
 });
 
 router.get('/movies', getMovies);
