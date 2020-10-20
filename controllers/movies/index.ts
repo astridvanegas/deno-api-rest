@@ -27,7 +27,7 @@ export const createMovie = async ({
     if (!request.hasBody) throw new Error('BODY_MISSING');
 
     const newMovie: MovieSchema = await body.value;
-    const movie = await save(newMovie);
+    await save(newMovie);
 
     response.status = 200;
     response.body = { message: 'Movie created successfully' };
@@ -82,7 +82,7 @@ export const updateMovie = async ({
   } else {
     const body: Body = await request.body();
     const movieUpdated = await body.value;
-    const movie = await update(params.id, movieUpdated);
+    await update(params.id, movieUpdated);
     response.status = 200;
     response.body = { message: 'Movie updated successfully' };
   }
