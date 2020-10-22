@@ -7,7 +7,7 @@ import {
   updateMovie
 } from '../controllers/movies/index.ts';
 
-import { validator } from '../middlewares/validator.ts';
+import { validator } from '../utils/middlewares.ts';
 
 const router = new Router();
 

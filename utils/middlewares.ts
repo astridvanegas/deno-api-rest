@@ -1,6 +1,6 @@
 import { Context, helpers, validate, match } from '../deps.ts';
 
-const validator = async (ctx: Context, next: any) => {
+export const validator = async (ctx: Context, next: any) => {
   const params = helpers.getQuery(ctx, { mergeParams: true });
 
   const [passes, errors] = await validate(
@@ -19,4 +19,7 @@ const validator = async (ctx: Context, next: any) => {
   await next();
 };
 
-export { validator };
+export const notFound = ({ response }: any) => {
+  response.status = 404;
+  response.body = { message: "Not Found" };
+};
